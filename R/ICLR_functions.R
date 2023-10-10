@@ -217,14 +217,6 @@ pcv_IID_Lap = function(X, eps, grid, M, fold, e_val, e_vec,
       mu_tilde = matrix(0,n,Rep)
       Q = 0
       for(l in 1:Rep){
-        # mu_tilde_coef = rep(0,M[I])
-        # for(j in 1:M[I]){
-        #   mu_tilde_coef[j] = mu_hat_coef_train[j] + rlaplace(n = 1, mu = 0, sigma = Delta)
-        # }
-        # # Calculate mu.tilde for l th Rep
-        # for(j in 1:M[I]){
-        #   mu_tilde[,l] = mu_tilde[,l] + mu_tilde_coef[j]*e_vec[,j]
-        # }
         for(j in 1:M[I]){
           mu_tilde[,l] = mu_tilde[,l] + rlaplace(n = 1, mu = 0, sigma = Delta)*e_vec[,j]
         }
